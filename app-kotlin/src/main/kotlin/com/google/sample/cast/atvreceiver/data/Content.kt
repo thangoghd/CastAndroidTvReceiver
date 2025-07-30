@@ -13,24 +13,34 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.google.sample.cast.atvreceiver.ui
+package com.google.sample.cast.atvreceiver.data
 
-import android.app.Activity
-import android.os.Bundle
-import com.google.sample.cast.atvreceiver.R
+import java.io.Serializable
 
 /**
- * Main Activity class that loads [MainFragment].
+ * Content class represents content within a source
  */
-class MainActivity : Activity() {
-    public override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+data class Content(
+    var id: String? = null,
+    var name: String? = null,
+    var streams: MutableList<Stream> = mutableListOf()
+) : Serializable {
+    
+    /**
+     * Get the first available stream
+     */
+    fun getFirstStream(): Stream? {
+        return streams.firstOrNull()
     }
-
+    
+    /**
+     * Get stream by name
+     */
+    fun getStreamByName(name: String): Stream? {
+        return streams.find { it.name == name }
+    }
+    
     companion object {
-        const val CHANNEL = "Channel"
-        // Keep MOVIE for backward compatibility
-        const val MOVIE = "Movie"
+        const val serialVersionUID = 727566175075960659L
     }
 }

@@ -1,0 +1,765 @@
+{"channels": [
+    {
+        "id": "bunchar-600375334",
+        "name": "Tigres Zipaquira vs America de Cali",
+        "subtitle": "Colombian Copa BetPlay DIMAYOR • 00:00",
+        "labels": [
+            {
+                "position": "bottom-left",
+                "text": "BLV Cà Chua",
+                "color": "#0066CC",
+                "text_color": "#FFFFFF"
+            },
+            {
+                "position": "center",
+                "text": "0 - 0",
+                "color": "#4CAF50",
+                "text_color": "#FFFFFF"
+            }
+        ],
+        "image": {
+            "url": "https://hxcv.site/images/cache/match-a992709bb752fe170b248eb956558dd5.png",
+            "height": 480,
+            "width": 640,
+            "display": "cover",
+            "shape": "square"
+        },
+        "type": "single",
+        "display": "thumbnail-only",
+        "sources": [
+            {
+                "id": "bunchar-source-600375334",
+                "name": "Bún chả TV",
+                "contents": [
+                    {
+                        "id": "bunchar-content-600375334",
+                        "name": "Tigres Zipaquira vs America de Cali",
+                        "streams": [
+                            {
+                                "id": "bunchar-stream-94837",
+                                "name": "BLV Cà Chua",
+                                "stream_links": [
+                                    {
+                                        "id": "bunchar-hls-94837",
+                                        "name": "HLS",
+                                        "type": "hls",
+                                        "default": true,
+                                        "url": "https://2893254555.global.cdnfastest.com/live/688966f917f04_8884/index.m3u8?expire=1754440057&sign=b6716f44ee4b065b59f7077252a6e88f",
+                                        "request_headers": [
+                                            {
+                                                "key": "User-Agent",
+                                                "value": "Mozilla/5.0 AppleWebKit/537.36 Chrome/81.0.4044.138 Safari/537.36"
+                                            },
+                                            {
+                                                "key": "Referer",
+                                                "value": "https://bunchatv1.com/"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "id": "bunchar-flv-94837",
+                                        "name": "FLV",
+                                        "type": "hls",
+                                        "default": false,
+                                        "url": "https://2893950149.global.cdnfastest.com/live/688966f917f04_8884.flv?expire=1754440057&sign=b6716f44ee4b065b59f7077252a6e88f",
+                                        "request_headers": [
+                                            {
+                                                "key": "User-Agent",
+                                                "value": "Mozilla/5.0 AppleWebKit/537.36 Chrome/81.0.4044.138 Safari/537.36"
+                                            },
+                                            {
+                                                "key": "Referer",
+                                                "value": "https://bunchatv1.com/"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": "bunchar-600372114",
+        "name": "Tigres UANL vs Houston Dynamo",
+        "subtitle": "Leagues Cup • 00:00",
+        "labels": [
+            {
+                "position": "bottom-left",
+                "text": "BLV Chả Ram",
+                "color": "#0066CC",
+                "text_color": "#FFFFFF"
+            },
+            {
+                "position": "center",
+                "text": "HT",
+                "color": "#0066CC",
+                "text_color": "#FFFFFF"
+            },
+            {
+                "position": "center",
+                "text": "1 - 0",
+                "color": "#4CAF50",
+                "text_color": "#FFFFFF"
+            }
+        ],
+        "image": {
+            "url": "https://hxcv.site/images/cache/match-3f9f3f9ed53d02a7e71047c921346980.png",
+            "height": 480,
+            "width": 640,
+            "display": "cover",
+            "shape": "square"
+        },
+        "type": "single",
+        "display": "thumbnail-only",
+        "sources": [
+            {
+                "id": "bunchar-source-600372114",
+                "name": "Bún chả TV",
+                "contents": [
+                    {
+                        "id": "bunchar-content-600372114",
+                        "name": "Tigres UANL vs Houston Dynamo",
+                        "streams": [
+                            {
+                                "id": "bunchar-stream-97483",
+                                "name": "BLV Chả Ram",
+                                "stream_links": [
+                                    {
+                                        "id": "bunchar-hls-97483",
+                                        "name": "HLS",
+                                        "type": "hls",
+                                        "default": true,
+                                        "url": "https://2893254555.global.cdnfastest.com/live/6889777517f04_1343/index.m3u8?expire=1754444277&sign=1de8ce980e3e07a50f60a986155be3b6",
+                                        "request_headers": [
+                                            {
+                                                "key": "User-Agent",
+                                                "value": "Mozilla/5.0 AppleWebKit/537.36 Chrome/81.0.4044.138 Safari/537.36"
+                                            },
+                                            {
+                                                "key": "Referer",
+                                                "value": "https://bunchatv1.com/"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "id": "bunchar-flv-97483",
+                                        "name": "FLV",
+                                        "type": "hls",
+                                        "default": false,
+                                        "url": "https://2893950149.global.cdnfastest.com/live/6889777517f04_1343.flv?expire=1754444277&sign=1de8ce980e3e07a50f60a986155be3b6",
+                                        "request_headers": [
+                                            {
+                                                "key": "User-Agent",
+                                                "value": "Mozilla/5.0 AppleWebKit/537.36 Chrome/81.0.4044.138 Safari/537.36"
+                                            },
+                                            {
+                                                "key": "Referer",
+                                                "value": "https://bunchatv1.com/"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": "bunchar-600372219",
+        "name": "Goiás EC vs Remo Belem (PA)",
+        "subtitle": "Brazilian Serie B • 00:00",
+        "labels": [
+            {
+                "position": "bottom-left",
+                "text": "BLV Chả Lụa",
+                "color": "#0066CC",
+                "text_color": "#FFFFFF"
+            },
+            {
+                "position": "center",
+                "text": "83",
+                "color": "#0066CC",
+                "text_color": "#FFFFFF"
+            },
+            {
+                "position": "center",
+                "text": "0 - 1",
+                "color": "#4CAF50",
+                "text_color": "#FFFFFF"
+            }
+        ],
+        "image": {
+            "url": "https://hxcv.site/images/cache/match-5973b1b97ce4f4cb6bcb2ff9979d602c.png",
+            "height": 480,
+            "width": 640,
+            "display": "cover",
+            "shape": "square"
+        },
+        "type": "single",
+        "display": "thumbnail-only",
+        "sources": [
+            {
+                "id": "bunchar-source-600372219",
+                "name": "Bún chả TV",
+                "contents": [
+                    {
+                        "id": "bunchar-content-600372219",
+                        "name": "Goiás EC vs Remo Belem (PA)",
+                        "streams": [
+                            {
+                                "id": "bunchar-stream-94823",
+                                "name": "BLV Chả Lụa",
+                                "stream_links": [
+                                    {
+                                        "id": "bunchar-hls-94823",
+                                        "name": "HLS",
+                                        "type": "hls",
+                                        "default": true,
+                                        "url": "https://2893254555.global.cdnfastest.com/live/68895f69827d0_5160/index.m3u8?expire=1754438121&sign=99bdf629acb93361542b92347bb09c4e",
+                                        "request_headers": [
+                                            {
+                                                "key": "User-Agent",
+                                                "value": "Mozilla/5.0 AppleWebKit/537.36 Chrome/81.0.4044.138 Safari/537.36"
+                                            },
+                                            {
+                                                "key": "Referer",
+                                                "value": "https://bunchatv1.com/"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "id": "bunchar-flv-94823",
+                                        "name": "FLV",
+                                        "type": "hls",
+                                        "default": false,
+                                        "url": "https://2893950149.global.cdnfastest.com/live/68895f69827d0_5160.flv?expire=1754438121&sign=99bdf629acb93361542b92347bb09c4e",
+                                        "request_headers": [
+                                            {
+                                                "key": "User-Agent",
+                                                "value": "Mozilla/5.0 AppleWebKit/537.36 Chrome/81.0.4044.138 Safari/537.36"
+                                            },
+                                            {
+                                                "key": "Referer",
+                                                "value": "https://bunchatv1.com/"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": "bunchar-600375327",
+        "name": "Real Soacha Cundinamarca vs Deportes Tolima",
+        "subtitle": "Colombian Copa BetPlay DIMAYOR • 00:00",
+        "labels": [
+            {
+                "position": "bottom-left",
+                "text": "BLV Bún Cá",
+                "color": "#0066CC",
+                "text_color": "#FFFFFF"
+            },
+            {
+                "position": "center",
+                "text": "0 - 0",
+                "color": "#4CAF50",
+                "text_color": "#FFFFFF"
+            }
+        ],
+        "image": {
+            "url": "https://hxcv.site/images/cache/match-8a9f3811c2423f9702ef5fdb3a92809d.png",
+            "height": 480,
+            "width": 640,
+            "display": "cover",
+            "shape": "square"
+        },
+        "type": "single",
+        "display": "thumbnail-only",
+        "sources": [
+            {
+                "id": "bunchar-source-600375327",
+                "name": "Bún chả TV",
+                "contents": [
+                    {
+                        "id": "bunchar-content-600375327",
+                        "name": "Real Soacha Cundinamarca vs Deportes Tolima",
+                        "streams": [
+                            {
+                                "id": "bunchar-stream-97497",
+                                "name": "BLV Bún Cá",
+                                "stream_links": [
+                                    {
+                                        "id": "bunchar-hls-97497",
+                                        "name": "HLS",
+                                        "type": "hls",
+                                        "default": true,
+                                        "url": "https://2893254555.global.cdnfastest.com/live/68895bca17f04_4908/index.m3u8?expire=1754437194&sign=9d5aa4bda4c02f06b4bf4e6a8b4afc29",
+                                        "request_headers": [
+                                            {
+                                                "key": "User-Agent",
+                                                "value": "Mozilla/5.0 AppleWebKit/537.36 Chrome/81.0.4044.138 Safari/537.36"
+                                            },
+                                            {
+                                                "key": "Referer",
+                                                "value": "https://bunchatv1.com/"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "id": "bunchar-flv-97497",
+                                        "name": "FLV",
+                                        "type": "hls",
+                                        "default": false,
+                                        "url": "https://2893950149.global.cdnfastest.com/live/68895bca17f04_4908.flv?expire=1754437194&sign=9d5aa4bda4c02f06b4bf4e6a8b4afc29",
+                                        "request_headers": [
+                                            {
+                                                "key": "User-Agent",
+                                                "value": "Mozilla/5.0 AppleWebKit/537.36 Chrome/81.0.4044.138 Safari/537.36"
+                                            },
+                                            {
+                                                "key": "Referer",
+                                                "value": "https://bunchatv1.com/"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": "bunchar-600372254",
+        "name": "Pachuca vs San Diego FC",
+        "subtitle": "Leagues Cup • 00:00",
+        "labels": [
+            {
+                "position": "bottom-left",
+                "text": "BLV Tôm Chua",
+                "color": "#0066CC",
+                "text_color": "#FFFFFF"
+            },
+            {
+                "position": "center",
+                "text": "0 - 0",
+                "color": "#4CAF50",
+                "text_color": "#FFFFFF"
+            }
+        ],
+        "image": {
+            "url": "https://hxcv.site/images/cache/match-e2e8a06da5d6b23361d81436dc834dba.png",
+            "height": 480,
+            "width": 640,
+            "display": "cover",
+            "shape": "square"
+        },
+        "type": "single",
+        "display": "thumbnail-only",
+        "sources": [
+            {
+                "id": "bunchar-source-600372254",
+                "name": "Bún chả TV",
+                "contents": [
+                    {
+                        "id": "bunchar-content-600372254",
+                        "name": "Pachuca vs San Diego FC",
+                        "streams": [
+                            {
+                                "id": "bunchar-stream-97448",
+                                "name": "BLV Tôm Chua",
+                                "stream_links": [
+                                    {
+                                        "id": "bunchar-hls-97448",
+                                        "name": "HLS",
+                                        "type": "hls",
+                                        "default": true,
+                                        "url": "https://2893254555.global.cdnfastest.com/live/68897e1f17f04_4089/index.m3u8?expire=1754445983&sign=c39a98625d1105a6b91442cbffa9fe23",
+                                        "request_headers": [
+                                            {
+                                                "key": "User-Agent",
+                                                "value": "Mozilla/5.0 AppleWebKit/537.36 Chrome/81.0.4044.138 Safari/537.36"
+                                            },
+                                            {
+                                                "key": "Referer",
+                                                "value": "https://bunchatv1.com/"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "id": "bunchar-flv-97448",
+                                        "name": "FLV",
+                                        "type": "hls",
+                                        "default": false,
+                                        "url": "https://2893950149.global.cdnfastest.com/live/68897e1f17f04_4089.flv?expire=1754445983&sign=c39a98625d1105a6b91442cbffa9fe23",
+                                        "request_headers": [
+                                            {
+                                                "key": "User-Agent",
+                                                "value": "Mozilla/5.0 AppleWebKit/537.36 Chrome/81.0.4044.138 Safari/537.36"
+                                            },
+                                            {
+                                                "key": "Referer",
+                                                "value": "https://bunchatv1.com/"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": "bunchar-600396637",
+        "name": "Justin Hoh vs Sathish Kumar KARUNAKARAN",
+        "subtitle": "Sân 2 - SANDS CHINA LTD Macau Open 2025 • 00:00",
+        "labels": [
+            {
+                "position": "bottom-left",
+                "text": "BLV Khoai Mỡ",
+                "color": "#0066CC",
+                "text_color": "#FFFFFF"
+            },
+            {
+                "position": "top-left",
+                "text": "● Live",
+                "color": "#FF0000",
+                "text_color": "#FFFFFF"
+            }
+        ],
+        "image": {
+            "url": "https://hxcv.site/images/cache/match-67b159c05bbf0aa5a99524384a9b0138.png",
+            "height": 480,
+            "width": 640,
+            "display": "cover",
+            "shape": "square"
+        },
+        "type": "single",
+        "display": "thumbnail-only",
+        "sources": [
+            {
+                "id": "bunchar-source-600396637",
+                "name": "Bún chả TV",
+                "contents": [
+                    {
+                        "id": "bunchar-content-600396637",
+                        "name": "Justin Hoh vs Sathish Kumar KARUNAKARAN",
+                        "streams": [
+                            {
+                                "id": "bunchar-stream-97525",
+                                "name": "BLV Khoai Mỡ",
+                                "stream_links": [
+                                    {
+                                        "id": "bunchar-hls-97525",
+                                        "name": "HLS",
+                                        "type": "hls",
+                                        "default": true,
+                                        "url": "https://2893254555.global.cdnfastest.com/live/6889752b827d0_17480/index.m3u8?expire=1754443691&sign=85cbb4b7e0bbed6647d2e1df712cc862",
+                                        "request_headers": [
+                                            {
+                                                "key": "User-Agent",
+                                                "value": "Mozilla/5.0 AppleWebKit/537.36 Chrome/81.0.4044.138 Safari/537.36"
+                                            },
+                                            {
+                                                "key": "Referer",
+                                                "value": "https://bunchatv1.com/"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "id": "bunchar-flv-97525",
+                                        "name": "FLV",
+                                        "type": "hls",
+                                        "default": false,
+                                        "url": "https://2893950149.global.cdnfastest.com/live/6889752b827d0_17480.flv?expire=1754443691&sign=85cbb4b7e0bbed6647d2e1df712cc862",
+                                        "request_headers": [
+                                            {
+                                                "key": "User-Agent",
+                                                "value": "Mozilla/5.0 AppleWebKit/537.36 Chrome/81.0.4044.138 Safari/537.36"
+                                            },
+                                            {
+                                                "key": "Referer",
+                                                "value": "https://bunchatv1.com/"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": "bunchar-600396770",
+        "name": "WONG Tien Ci vs CHENG Xing",
+        "subtitle": "Sân 3 - SANDS CHINA LTD Macau Open 2025 • 00:00",
+        "labels": [
+            {
+                "position": "bottom-left",
+                "text": "BLV Bún Riêu",
+                "color": "#0066CC",
+                "text_color": "#FFFFFF"
+            },
+            {
+                "position": "top-left",
+                "text": "● Live",
+                "color": "#FF0000",
+                "text_color": "#FFFFFF"
+            }
+        ],
+        "image": {
+            "url": "https://hxcv.site/images/cache/match-f9dc91be7cce1f4fa6fa4d03604f32f6.png",
+            "height": 480,
+            "width": 640,
+            "display": "cover",
+            "shape": "square"
+        },
+        "type": "single",
+        "display": "thumbnail-only",
+        "sources": [
+            {
+                "id": "bunchar-source-600396770",
+                "name": "Bún chả TV",
+                "contents": [
+                    {
+                        "id": "bunchar-content-600396770",
+                        "name": "WONG Tien Ci vs CHENG Xing",
+                        "streams": [
+                            {
+                                "id": "bunchar-stream-97532",
+                                "name": "BLV Bún Riêu",
+                                "stream_links": [
+                                    {
+                                        "id": "bunchar-hls-97532",
+                                        "name": "HLS",
+                                        "type": "hls",
+                                        "default": true,
+                                        "url": "https://2893254555.global.cdnfastest.com/live/68897c7417f04_4439/index.m3u8?expire=1754445556&sign=9a76a8e01b8998eae28b972dcd263cec",
+                                        "request_headers": [
+                                            {
+                                                "key": "User-Agent",
+                                                "value": "Mozilla/5.0 AppleWebKit/537.36 Chrome/81.0.4044.138 Safari/537.36"
+                                            },
+                                            {
+                                                "key": "Referer",
+                                                "value": "https://bunchatv1.com/"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "id": "bunchar-flv-97532",
+                                        "name": "FLV",
+                                        "type": "hls",
+                                        "default": false,
+                                        "url": "https://2893950149.global.cdnfastest.com/live/68897c7417f04_4439.flv?expire=1754445556&sign=9a76a8e01b8998eae28b972dcd263cec",
+                                        "request_headers": [
+                                            {
+                                                "key": "User-Agent",
+                                                "value": "Mozilla/5.0 AppleWebKit/537.36 Chrome/81.0.4044.138 Safari/537.36"
+                                            },
+                                            {
+                                                "key": "Referer",
+                                                "value": "https://bunchatv1.com/"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": "bunchar-600382033",
+        "name": "Managua FC vs Antigua GFC",
+        "subtitle": "CONCACAF Central American Cup • 00:00",
+        "labels": [
+            {
+                "position": "top-left",
+                "text": "● Live",
+                "color": "#FF0000",
+                "text_color": "#FFFFFF"
+            },
+            {
+                "position": "center",
+                "text": "15",
+                "color": "#0066CC",
+                "text_color": "#FFFFFF"
+            },
+            {
+                "position": "center",
+                "text": "0 - 0",
+                "color": "#4CAF50",
+                "text_color": "#FFFFFF"
+            }
+        ],
+        "image": {
+            "url": "https://hxcv.site/images/cache/match-815e54f4b5f0481366b5678b55e914a9.png",
+            "height": 480,
+            "width": 640,
+            "display": "cover",
+            "shape": "square"
+        },
+        "type": "single",
+        "display": "thumbnail-only",
+        "sources": [
+            {
+                "id": "bunchar-source-600382033",
+                "name": "Bún chả TV",
+                "contents": [
+                    {
+                        "id": "bunchar-content-600382033",
+                        "name": "Managua FC vs Antigua GFC",
+                        "streams": [
+                            {
+                                "id": "bunchar-stream-direct-600382033",
+                                "name": "Direct Stream",
+                                "stream_links": [
+                                    {
+                                        "id": "bunchar-direct-600382033-0",
+                                        "name": "zetcdn",
+                                        "type": "hls",
+                                        "default": true,
+                                        "url": "https://live.alilicloud.com/live/ca719d99c19f785eea879a9f06be9572/playlist.m3u8"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": "bunchar-600382040",
+        "name": "Deportivo Saprissa vs Cartagines Deportiva SA",
+        "subtitle": "CONCACAF Central American Cup • 00:00",
+        "labels": [
+            {
+                "position": "top-left",
+                "text": "● Live",
+                "color": "#FF0000",
+                "text_color": "#FFFFFF"
+            },
+            {
+                "position": "center",
+                "text": "14",
+                "color": "#0066CC",
+                "text_color": "#FFFFFF"
+            },
+            {
+                "position": "center",
+                "text": "1 - 0",
+                "color": "#4CAF50",
+                "text_color": "#FFFFFF"
+            }
+        ],
+        "image": {
+            "url": "https://hxcv.site/images/cache/match-9d88eed8c3edec786d35044ee83c5b3f.png",
+            "height": 480,
+            "width": 640,
+            "display": "cover",
+            "shape": "square"
+        },
+        "type": "single",
+        "display": "thumbnail-only",
+        "sources": [
+            {
+                "id": "bunchar-source-600382040",
+                "name": "Bún chả TV",
+                "contents": [
+                    {
+                        "id": "bunchar-content-600382040",
+                        "name": "Deportivo Saprissa vs Cartagines Deportiva SA",
+                        "streams": [
+                            {
+                                "id": "bunchar-stream-direct-600382040",
+                                "name": "Direct Stream",
+                                "stream_links": [
+                                    {
+                                        "id": "bunchar-direct-600382040-0",
+                                        "name": "zetcdn",
+                                        "type": "hls",
+                                        "default": true,
+                                        "url": "https://live.alilicloud.com/live/da6380768c8f80b1d9fb5c76d0317b4b/playlist.m3u8"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": "bunchar-600388515",
+        "name": "America de Cali vs Tigres Zipaquira",
+        "subtitle": "Colombian Copa BetPlay DIMAYOR • 00:00",
+        "labels": [
+            {
+                "position": "center",
+                "text": "HT",
+                "color": "#0066CC",
+                "text_color": "#FFFFFF"
+            },
+            {
+                "position": "center",
+                "text": "2 - 0",
+                "color": "#4CAF50",
+                "text_color": "#FFFFFF"
+            }
+        ],
+        "image": {
+            "url": "https://hxcv.site/images/cache/match-22cc55168acd2eed41b0b9fc5fa1426e.png",
+            "height": 480,
+            "width": 640,
+            "display": "cover",
+            "shape": "square"
+        },
+        "type": "single",
+        "display": "thumbnail-only",
+        "sources": [
+            {
+                "id": "bunchar-source-600388515",
+                "name": "Bún chả TV",
+                "contents": [
+                    {
+                        "id": "bunchar-content-600388515",
+                        "name": "America de Cali vs Tigres Zipaquira",
+                        "streams": [
+                            {
+                                "id": "bunchar-stream-direct-600388515",
+                                "name": "Direct Stream",
+                                "stream_links": [
+                                    {
+                                        "id": "bunchar-direct-600388515-0",
+                                        "name": "zetcdn",
+                                        "type": "hls",
+                                        "default": true,
+                                        "url": "https://live.alilicloud.com/live/c5b41b2f9c1dc77964b6d1afd4305b74/playlist.m3u8"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+]}

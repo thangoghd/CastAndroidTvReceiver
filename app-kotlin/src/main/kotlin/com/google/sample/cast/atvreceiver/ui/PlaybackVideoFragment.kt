@@ -35,10 +35,16 @@ import android.util.Log
 import androidx.leanback.app.VideoSupportFragmentGlueHost
 import com.google.android.exoplayer2.SimpleExoPlayer
 import androidx.leanback.widget.PlaybackControlsRow
-import com.google.sample.cast.atvreceiver.data.MovieList
+import com.google.sample.cast.atvreceiver.data.ChannelList
+import com.google.sample.cast.atvreceiver.data.ChannelToMovieAdapter
 import android.widget.Toast
 import com.google.android.exoplayer2.MediaItem
 import com.google.android.exoplayer2.MediaMetadata
+import com.google.android.exoplayer2.upstream.DefaultHttpDataSource
+import com.google.android.exoplayer2.upstream.DataSource
+import com.google.android.exoplayer2.source.MediaSource
+import com.google.android.exoplayer2.source.hls.HlsMediaSource
+import com.google.android.exoplayer2.source.ProgressiveMediaSource
 import com.google.android.gms.cast.tv.media.MediaInfoWriter
 import com.google.android.gms.common.images.WebImage
 import com.google.android.gms.cast.tv.media.MediaLoadCommandCallback
@@ -49,6 +55,7 @@ import com.google.android.gms.cast.MediaError
 import com.google.android.gms.cast.MediaError.DetailedErrorCode
 import com.google.android.gms.tasks.Task
 import com.google.sample.cast.atvreceiver.data.Movie
+import com.google.sample.cast.atvreceiver.data.Channel
 import java.util.ArrayList
 import java.util.function.Consumer
 
@@ -58,7 +65,7 @@ import java.util.function.Consumer
 class PlaybackVideoFragment : VideoSupportFragment() {
     private var mMediaSession: MediaSessionCompat? = null
     private var mMediaSessionConnector: MediaSessionConnector? = null
-    private var mPlayer: Player? = null
+    private var mPlayer: SimpleExoPlayer? = null
     private var mPlayerAdapter: LeanbackPlayerAdapter? = null
     private var mPlayerGlue: VideoPlayerGlue? = null
     private var mPlaylistActionListener: PlaylistActionListener? = null
@@ -140,8 +147,12 @@ class PlaybackVideoFragment : VideoSupportFragment() {
 
     fun processIntent(intent: Intent) {
         Log.d(LOG_TAG, "processIntent()")
-        if (intent.hasExtra(MainActivity.MOVIE)) {
+        if (intent.hasExtra(MainActivity.CHANNEL)) {
             // Intent came from MainActivity (User chose an item inside ATV app).
+            val channel = intent.getSerializableExtra(MainActivity.CHANNEL) as Channel?
+            startPlaybackFromChannel(channel, 0)
+        } else if (intent.hasExtra(MainActivity.MOVIE)) {
+            // Fallback to Movie for backward compatibility
             val movie = intent.getSerializableExtra(MainActivity.MOVIE) as Movie?
             startPlayback(movie, 0)
         } else {
@@ -200,7 +211,9 @@ class PlaybackVideoFragment : VideoSupportFragment() {
                                 .build()
                 ).build()
         mediaItems.add(firstMediaItem)
-        MovieList.getList()!!.forEach(Consumer { movieItem: Movie ->
+        // Get movies from channel data
+        val movieList = ChannelToMovieAdapter.setupMoviesFromAssets(requireContext(), "channel.json")
+        movieList?.forEach(Consumer { movieItem: Movie ->
             mediaItems.add(MediaItem.Builder()
                     .setUri(movieItem.videoUrl)
                     .setMediaMetadata(
@@ -217,6 +230,74 @@ class PlaybackVideoFragment : VideoSupportFragment() {
         mPlayerGlue!!.playWhenPrepared()
         mPlayerGlue!!.seekTo(startPosition)
         mMediaManager!!.mediaStatusModifier.clear()
+    }
+    
+    private fun startPlaybackFromChannel(channel: Channel?, startPosition: Long) {
+        if (channel == null) {
+            logAndDisplay("Channel is null")
+            return
+        }
+        
+        val streamLink = channel.getPrimaryStreamLink()
+        
+        if (streamLink?.url == null) {
+            logAndDisplay("No valid stream URL found")
+            return
+        }
+        
+        // Create DataSource factory with headers
+        val dataSourceFactory = createDataSourceFactoryWithHeaders(streamLink)
+        
+        // Create MediaSource with custom DataSource
+        val mediaSource = if (streamLink.type == "hls" || streamLink.url!!.contains(".m3u8")) {
+            HlsMediaSource.Factory(dataSourceFactory)
+                .createMediaSource(MediaItem.fromUri(streamLink.url!!))
+        } else {
+            // For other formats, use default
+            val mediaItem = MediaItem.Builder()
+                .setUri(streamLink.url)
+                .setMediaMetadata(
+                    MediaMetadata.Builder()
+                        .setArtworkUri(Uri.parse(channel.getImageUrl()))
+                        .setTitle(channel.getDisplayTitle())
+                        .setSubtitle(channel.getDisplayDescription())
+                        .build()
+                )
+                .build()
+            
+            ProgressiveMediaSource.Factory(dataSourceFactory)
+                .createMediaSource(mediaItem)
+        }
+        
+        // Set the media source
+        mPlayer!!.setMediaSource(mediaSource)
+        mPlayer!!.prepare()
+        mPlayerGlue!!.playWhenPrepared()
+        mPlayerGlue!!.seekTo(startPosition)
+        mMediaManager!!.mediaStatusModifier.clear()
+    }
+    
+    private fun createDataSourceFactoryWithHeaders(streamLink: com.google.sample.cast.atvreceiver.data.StreamLink): DataSource.Factory {
+        val httpDataSourceFactory = DefaultHttpDataSource.Factory()
+        
+        // Add headers if available
+        if (streamLink.requestHeaders.isNotEmpty()) {
+            val headersMap = mutableMapOf<String, String>()
+            streamLink.requestHeaders.forEach { header ->
+                header.key?.let { key ->
+                    header.value?.let { value ->
+                        headersMap[key] = value
+                    }
+                }
+            }
+            
+            if (headersMap.isNotEmpty()) {
+                httpDataSourceFactory.setDefaultRequestProperties(headersMap)
+                Log.d(LOG_TAG, "Added headers: $headersMap")
+            }
+        }
+        
+        return httpDataSourceFactory
     }
 
     private fun logAndDisplay(error: String) {
@@ -294,7 +375,9 @@ class PlaybackVideoFragment : VideoSupportFragment() {
         private const val LOG_TAG = "PlaybackVideoFragment"
         private const val UPDATE_DELAY = 16
         private fun convertEntityToMovie(entity: String): Movie {
-            return MovieList.getList()!![0]
+            // Note: This method needs context, should be refactored to be non-static
+            // For now, return a default Movie
+            return Movie()
         }
 
         private fun convertLoadRequestToMovie(loadRequestData: MediaLoadRequestData?): Movie? {

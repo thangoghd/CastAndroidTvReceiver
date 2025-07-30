@@ -13,24 +13,25 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.google.sample.cast.atvreceiver.ui
+package com.google.sample.cast.atvreceiver.data
 
-import android.app.Activity
-import android.os.Bundle
-import com.google.sample.cast.atvreceiver.R
+import java.io.Serializable
 
 /**
- * Main Activity class that loads [MainFragment].
+ * RequestHeader class represents HTTP headers for stream requests
  */
-class MainActivity : Activity() {
-    public override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-    }
-
+data class RequestHeader(
+    var key: String? = null,
+    var value: String? = null
+) : Serializable {
+    
     companion object {
-        const val CHANNEL = "Channel"
-        // Keep MOVIE for backward compatibility
-        const val MOVIE = "Movie"
+        const val serialVersionUID = 727566175075960656L
+        
+        // Common header keys
+        const val USER_AGENT = "User-Agent"
+        const val REFERER = "Referer"
+        const val AUTHORIZATION = "Authorization"
+        const val ORIGIN = "Origin"
     }
 }

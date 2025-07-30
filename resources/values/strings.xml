@@ -6,6 +6,6 @@
     <string name="watch_trailer_2">FREE</string>
     <string name="movie">Movie</string>
 
-    <string name="catalog_url">https://commondatastorage.googleapis.com/gtv-videos-bucket/CastVideos/f.json</string>
+    <string name="catalog_url">file:///android_asset/channel.json</string>
     <string name="casting_indicator_txt_string">... Casting ... \n Launch a video or Press the Back button</string>
 </resources>

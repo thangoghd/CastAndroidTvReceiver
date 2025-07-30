@@ -25,9 +25,10 @@ import com.google.sample.cast.atvreceiver.R
 import android.widget.Toast
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.target.SimpleTarget
-import com.google.sample.cast.atvreceiver.data.MovieListLoader
+import com.google.sample.cast.atvreceiver.data.ChannelToMovieListLoader
 import com.google.sample.cast.atvreceiver.presenter.CardPresenter
-import com.google.sample.cast.atvreceiver.data.MovieList
+import com.google.sample.cast.atvreceiver.data.ChannelList
+import com.google.sample.cast.atvreceiver.data.ChannelToMovieAdapter
 import android.content.Intent
 import android.content.Loader
 import android.graphics.drawable.Drawable
@@ -36,6 +37,7 @@ import android.util.Log
 import androidx.leanback.widget.*
 import com.bumptech.glide.request.transition.Transition
 import com.google.sample.cast.atvreceiver.data.Movie
+import com.google.sample.cast.atvreceiver.data.Channel
 import java.util.*
 
 class MainFragment : BrowseFragment(), LoaderManager.LoaderCallbacks<List<Movie?>> {
@@ -120,14 +122,17 @@ class MainFragment : BrowseFragment(), LoaderManager.LoaderCallbacks<List<Movie?
     }
 
     override fun onCreateLoader(id: Int, args: Bundle): Loader<List<Movie?>> {
-        return MovieListLoader(activity!!, getString(R.string.catalog_url)) as Loader<List<Movie?>>
+        return ChannelToMovieListLoader(activity!!, getString(R.string.catalog_url)) as Loader<List<Movie?>>
     }
 
     override fun onLoadFinished(loader: Loader<List<Movie?>>, data: List<Movie?>) {
         val cardPresenter = CardPresenter()
         var i: Int
         i = 0
-        while (i < MovieList.MOVIE_CATEGORY.size) {
+        // Create categories based on channel data
+        val categories = arrayOf("Live Channels", "Sports", "Entertainment")
+        
+        while (i < categories.size) {
             if (i != 0) {
                 Collections.shuffle(data)
             }
@@ -135,7 +140,7 @@ class MainFragment : BrowseFragment(), LoaderManager.LoaderCallbacks<List<Movie?
             for (j in data.indices) {
                 listRowAdapter.add(data[j])
             }
-            val header = HeaderItem(i.toLong(), MovieList.MOVIE_CATEGORY[i])
+            val header = HeaderItem(i.toLong(), categories[i])
             mCategoryRowAdapter!!.add(ListRow(header, listRowAdapter))
             i++
         }
@@ -151,7 +156,16 @@ class MainFragment : BrowseFragment(), LoaderManager.LoaderCallbacks<List<Movie?
             if (item is Movie) {
                 Log.d(TAG, "Item: $item")
                 val intent = Intent(activity, PlaybackActivity::class.java)
-                intent.putExtra(MainActivity.MOVIE, item)
+                // Try to find the original channel for this movie to get headers
+                val channels = ChannelList.getList()
+                val channel = channels?.find { channel -> 
+                    channel.getDisplayTitle() == item.title 
+                }
+                if (channel != null) {
+                    intent.putExtra(MainActivity.CHANNEL, channel)
+                } else {
+                    intent.putExtra(MainActivity.MOVIE, item)
+                }
                 startActivity(intent)
             }
         }
