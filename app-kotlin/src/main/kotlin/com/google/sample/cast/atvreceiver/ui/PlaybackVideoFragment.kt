@@ -56,6 +56,12 @@ import com.google.android.gms.cast.MediaError.DetailedErrorCode
 import com.google.android.gms.tasks.Task
 import com.google.sample.cast.atvreceiver.data.Movie
 import com.google.sample.cast.atvreceiver.data.Channel
+import com.google.sample.cast.atvreceiver.data.Source
+import com.google.sample.cast.atvreceiver.data.Content
+import com.google.sample.cast.atvreceiver.data.Stream
+import com.google.sample.cast.atvreceiver.data.StreamLink
+import com.google.sample.cast.atvreceiver.data.RequestHeader
+import com.google.sample.cast.atvreceiver.data.Image
 import java.util.ArrayList
 import java.util.function.Consumer
 
@@ -360,7 +366,21 @@ class PlaybackVideoFragment : VideoSupportFragment() {
 
                 // Resolve the entity into your data structure and load media.
                 myFillMediaInfo(MediaInfoWriter(loadRequestData!!.mediaInfo!!))
-                startPlayback(convertLoadRequestToMovie(loadRequestData), 0)
+                
+                // Check if MediaInfo has custom data with headers
+                val mediaInfo = loadRequestData.mediaInfo!!
+                val customData = mediaInfo.customData
+                
+                if (customData != null && customData.has("headers")) {
+                    // Create Channel from MediaInfo with headers
+                    val channel = convertMediaInfoToChannel(mediaInfo)
+                    Log.d(LOG_TAG, "Starting playback from channel with headers: ${customData.optJSONObject("headers")}")
+                    startPlaybackFromChannel(channel, 0)
+                } else {
+                    // Fallback to regular Movie playback
+                    Log.d(LOG_TAG, "Starting regular playback without headers")
+                    startPlayback(convertLoadRequestToMovie(loadRequestData), 0)
+                }
 
                 // Update media metadata and state (this clears all previous status
                 // overrides).
@@ -398,6 +418,78 @@ class PlaybackVideoFragment : VideoSupportFragment() {
                 movie.cardImageUrl = metadata.images[0].url.toString()
             }
             return movie
+        }
+        
+        /**
+         * Convert MediaInfo from Cast to Channel object with headers support
+         */
+        private fun convertMediaInfoToChannel(mediaInfo: com.google.android.gms.cast.MediaInfo): Channel {
+            val channel = Channel()
+            
+            // Set basic channel info
+            val metadata = mediaInfo.metadata
+            if (metadata != null) {
+                channel.name = metadata.getString(com.google.android.gms.cast.MediaMetadata.KEY_TITLE) ?: "Cast Video"
+                channel.subtitle = metadata.getString(com.google.android.gms.cast.MediaMetadata.KEY_SUBTITLE) ?: ""
+                
+                // Set image if available
+                if (metadata.images.isNotEmpty()) {
+                    val image = Image()
+                    image.url = metadata.images[0].url.toString()
+                    channel.image = image
+                }
+            }
+            
+            // Create source with content
+            val source = Source()
+            source.name = "Cast Source"
+            
+            val content = Content()
+            content.name = channel.name
+            content.id = "cast-content"
+            
+            // Create stream with headers from custom data
+            val stream = Stream()
+            val streamLink = StreamLink()
+            streamLink.url = mediaInfo.contentId
+            streamLink.type = when (mediaInfo.contentType) {
+                "application/x-mpegURL" -> "hls"
+                "application/dash+xml" -> "dash"
+                "video/mp4" -> "mp4"
+                else -> "hls"
+            }
+            
+            // Extract headers from custom data
+            val customData = mediaInfo.customData
+            if (customData != null && customData.has("headers")) {
+                try {
+                    val headersJson = customData.getJSONObject("headers")
+                    val headers = mutableListOf<RequestHeader>()
+                    
+                    val keys = headersJson.keys()
+                    while (keys.hasNext()) {
+                        val key = keys.next()
+                        val value = headersJson.getString(key)
+                        val header = RequestHeader()
+                        header.key = key
+                        header.value = value
+                        headers.add(header)
+                        Log.d(LOG_TAG, "Extracted header from Cast: $key = $value")
+                    }
+                    
+                    streamLink.requestHeaders = headers
+                } catch (e: Exception) {
+                    Log.e(LOG_TAG, "Error extracting headers from Cast custom data: ${e.message}")
+                }
+            }
+            
+            stream.streamLinks = mutableListOf(streamLink)
+            content.streams = mutableListOf(stream)
+            source.contents = mutableListOf(content)
+            channel.sources = mutableListOf(source)
+            
+            Log.d(LOG_TAG, "Created channel from MediaInfo: ${channel.name}, headers: ${streamLink.requestHeaders.size}")
+            return channel
         }
     }
 }
