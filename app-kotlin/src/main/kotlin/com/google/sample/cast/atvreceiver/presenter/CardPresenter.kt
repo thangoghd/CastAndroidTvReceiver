@@ -89,7 +89,7 @@ class CardPresenter : Presenter() {
             // Both background colors should be set because the view's background is temporarily visible
             // during animations.
             view.setBackgroundColor(color)
-            view.findViewById<View>(R.id.info_field).setBackgroundColor(color)
+            //view.findViewById<View>(R.id.info_field).setBackgroundColor(color)
         }
     }
 }
